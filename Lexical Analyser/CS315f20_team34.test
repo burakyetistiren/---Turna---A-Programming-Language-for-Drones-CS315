@@ -1,0 +1,187 @@
+#/
+	An example program written in Turna to test loops.
+/#
+type_int x = 0, y = 0;
+while(x < 100)
+start
+     for(y =0; y < 20; y++)
+     start
+		print_nl("Hello Turna!");
+     end	
+     x++; 	
+end
+
+#/
+	An example program written in Turna to test operators.
+/#
+
+type_int a = 4, b = 3, c = 2, d = 1, e;
+type_bool f = true, g = false, h, i, j;
+e = (a + b) * c / d;      
+e = a - e;      
+h = f && g  
+h = a < 4 || b <= 3 or c > 1 || c >= 2 
+i = a lt 4 or b lte 3 or c gt 1 or c gte 2;
+j = h == i and h eq i;
+j = h != i and h neq i;
+
+#/
+An example program written in Turna to test declerations.
+/#
+type_int thats_an_integer;
+thats_an_integer=4;
+type_int thats_an_other_integer = 3;
+const type_int thats_an_constant_integer = 7;
+
+type_string thats_an_str;
+thats_an_str = "example1"
+type_string thats_an_other_str = "example2";
+const type_string thats_an_constant_str = "I Love PL";
+
+#/
+	An example program written in Turna to test nested loops.
+/#
+type_int x =0;
+type_int y =0;
+while(x < 100)
+start
+     for(y =0; y < 20; y++)
+     start
+	print_nl();
+     end	
+     x++; 	
+end
+
+#/
+	An example program written in Turna to test primitive nested if statements
+/#
+type_bool b1 = True;
+type_bool b2= False;
+if(b1 == True)
+start
+   if( b2 == False)
+     start
+    	land();
+      end
+   else
+     start
+            takeOff();
+     end
+
+#/
+An example program written in Turna to test primitive drone functions.
+/#
+takeOff();
+type_int dist;
+dist = 10;
+#fly Up 10 cm
+flyUpWithDistance(dist);
+type_int forward_dist = 20;
+flyForwardWithDistance(forward_dist);
+turnOnCam(); 
+takePict();
+turnOffCam(); 
+flyDownWithDistance(dist);
+land();
+
+#/ 
+An example program written in Turna to test primitive drone input/output.
+/#
+type_int input_int = scanInt();
+type_string input_str = scanStr(); 
+type_float input_float = scanFloat();
+type_bool input_bool =scanBool();
+type_char input_char =scanChar();
+
+
+print("thats an print statement without new line");
+print_nl("thats an print statement with new line");
+type_float thats_an_float;
+thats_an_float = 1.0;
+type_float thats_an_other_float = 2.0;
+
+#/ 
+    	An example program written in Turna to test all primitive functions.
+/#
+getIncl();
+getAltitude();
+getSpeed();
+getTemp();
+getAcceleration();
+setIncl();
+setAltitude();
+setSpeed();
+setTemp();
+setAcceleration();
+turnOnCam();
+turnOffCam();
+takePict();
+getCurrentTimeStamp();
+connectWifi();
+takeOff();
+land();
+flyUpWithDistance();
+flyDownWithDistance();
+flyLeftWithDistance();
+flyRightWithDistance();
+flyForwardWithDistance();
+flyBackWithDistance();
+rotateCwWithAngle();
+rotateCcwWithAngle();
+flipForward();
+flipBackward();
+flipLeft();
+flipRight();
+hoverForSeconds();
+yawRightWithDegrees();
+yawLeftWithDegrees();
+hover();
+scanInt();
+scanStr();
+scanFloat();
+scanBool();
+scanChar();
+
+#/ 
+    	An example program written in Turna to show an example flight program.
+/#
+takeOff();
+flyUpWithDistance(100);
+setSpeed(20);
+type_int e  = 0;
+while( hover())
+start
+  flyUpWithDistance(5);
+  rotateCcwWithAngle(180);
+  if( e < 100)
+    start
+      e++;
+    end
+  else
+     start
+       land();
+     end
+endconst type_float thats_an_constant_float = 3.14;
+
+type_bool thats_an_bool;
+thats_an_bool = false;
+type_bool thats_an_other_bool = true;
+const type_bool thats_an_constant_bool = true;
+
+type_char thats_an_char;
+thats_an_char= 'a';
+type_char thats_an_other_char = 'b';
+const type_char thats_an_constant_char = 'c';
+
+
+#This is a one-line comment
+
+#/
+
+    This is a multi-line comment
+	
+/#
+
+
+
+

@@ -1,0 +1,189 @@
+{ 
+    An example flight scenerio written in Turna.
+}
+type_string wifiName = scanStr();
+type_string wifiPassword = scanStr();
+connectWifi(wifiName, wifiPassword);
+print_nl(getCurrentTimeStamp());
+
+turnOnCam();
+takeOff();
+type_int count = 0;
+while(count lt 10)
+start
+	flipLeft();
+	takePict();
+	flipRight();
+	takePict();
+	rotateCwWithAngle(30.0);
+	takePict();
+	rotateCwWithAngle(30.0);
+	takePict();
+	if(getAcceleration() gt 10.0)
+	start
+		setAcceleration(5.0);
+	end
+	a++;
+end
+
+func void flipAndFly(type_float altitude)
+start
+	flipForward();
+	flyForwardWithDistance(5);
+	flipBack();
+	flyBackWithDistance(3);
+	print_nl(altitude);
+end
+
+for(type_int a = 10; a lte 2; a--)
+start
+	flipAndFly(getAltitude());
+end
+
+func type_bool hoverAndYaw()
+start
+
+	hoverForSeconds(60);
+	yawRightWithDegrees(180.0);
+	yawLeftWithDegrees(90.0);
+
+	if(getTemp() gt 30.5)
+	start
+		return true;
+	end
+	return false;
+
+end
+
+
+if(hoverAndYaw())
+start
+	print_nl("Overheating, please land.");
+end
+
+func void setFlightParameters(type_float inclination, type_float altitude, type_float speed, type_float acceleration)
+start
+	setIncl(inclination);
+	setAltitude(altitude);
+	setSpeed(speed);
+	setAcceleration(acceleration);
+end
+
+setFlightParameters(45.0, 12.3, 6.2, 2.7);
+
+land();
+turnOffCam();
+print_nl("Goodbye!");
+
+################################################################################
+{ 
+	Other test programs:
+}
+
+#Constant & variable declarations
+const type_int A = 5, B = 10;
+const type_bool ALWAYS_TRUE = true;
+const type_float PI = 3.14;
+const type_char FIRST_LETTER = 'T';
+const type_string NAME_OF_THE_LANGUAGE = "TURNA";
+
+type_int a;
+a = 4; 
+type_int b = 3;
+type_int c = 2, d = 1, e;
+
+type_bool f = true, g = false, h, i, j;  
+type_float k = 1.5;
+type_char ch = 'T';
+type_string str = "TURNA"; 
+
+e = (a + b) * c / d - a;      
+
+#Boolean operations
+h = f && g; 
+h = !h and (a < 4 || b <= 3 or c > 1 || c >= 2); 
+i = a lt 4 or b lte 3 or c gt 1 or c gte 2;
+j = h == i and h eq i or h != i and h neq i;
+
+#Expressions
+type_int exp = 'T' + a * 5 - !(6 < 7) && foo() || false;
+
+#Example conditional statements
+if(e gt a) start
+	if(!i or j) 
+	start 
+		h = false;
+	end
+	else
+	start
+		j = false;
+	end
+end
+
+#IO
+type_int $int_in = scanInt();
+type_string $str_in = scanStr(); 
+type_float $float_in = scanFloat();
+type_bool $bool_in = scanBool();
+type_char $char_in = scanChar();
+
+print("The integer input by the user is: ");
+print_nl($int_in);
+
+if($str_in lt 5)
+start
+	print_nl("The integer input by the user is less than 5");
+end
+
+#LOOPS
+print("Please enter an integer: ");
+type_int limit = scanInt();
+type_int count = 0;
+
+while(count < limit) 
+start 
+	print_nl(count); 
+	count++; 
+end
+
+for(type_int x = 0, y = limit; x lt limit; x++) start y--; end
+
+#Function Declerations & Calls
+
+func void my_function() start print_nl("Hello"); end
+func type_int my_function2() start return 0; end
+func type_bool my_function3() start return true; end
+func type_float my_function4() start return 1.5; end
+func type_char my_function5() start return 'T'; end
+func type_string my_function6() start return "TURNA"; end
+
+
+func type_int pow(type_int x, type_int y) start 
+
+const type_int FIRST_X = x;
+
+for(type_int i = 0; i lt y; i++) start x = x * FIRST_X; end
+
+end
+
+print("Please enter the base: ");
+type_int base = scanInt();
+
+print("Please enter the exponent: ");
+type_int exp = scanInt();
+
+print("The result is: ");
+print_nl(pow(base, exp));
+
+#Comments
+
+#This is a one-line comment
+
+{
+
+    This is a multi-line comment
+	
+}
+
+{
+{{ Even if there are more than one left curly braces, we won't get any errors. }
